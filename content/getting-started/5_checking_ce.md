@@ -1,7 +1,7 @@
 +++
 title = "Verification of deployment"
 chapter = false
-weight = 1
+weight = 5
 +++
 
 Now let's see if WebGoat application was successfully hooked with Contrast Security Community Edition.
