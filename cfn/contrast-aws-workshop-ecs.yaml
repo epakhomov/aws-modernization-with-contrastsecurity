@@ -230,12 +230,12 @@ Resources:
       Port: 80
       Protocol: HTTP
       HealthCheckEnabled: true
-      HealthCheckIntervalSeconds: 30
+      HealthCheckIntervalSeconds: 35
       HealthCheckPath: /WebGoat/login.mvc
       HealthCheckPort: 80
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 30
-      HealthyThresholdCount: 1
+      HealthyThresholdCount: 2
       UnhealthyThresholdCount: 10
       TargetType: ip
       Matcher:
