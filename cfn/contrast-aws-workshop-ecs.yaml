@@ -230,13 +230,13 @@ Resources:
       Port: 80
       Protocol: HTTP
       HealthCheckEnabled: true
-      HealthCheckIntervalSeconds: 60
+      HealthCheckIntervalSeconds: 30
       HealthCheckPath: /WebGoat/login.mvc
       HealthCheckPort: 80
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 30
-      HealthyThresholdCount: 5
-      UnhealthyThresholdCount: 2
+      HealthyThresholdCount: 1
+      UnhealthyThresholdCount: 10
       TargetType: ip
       Matcher:
         HttpCode: 200-299
@@ -262,7 +262,7 @@ Outputs:
     Value:
       Ref: WebGoatTargetGroup
 
-  LoadBalancerDNS:
-    Description: DNS of the load balancer connected to WebGoat running in Fargate.
+  WebGoatURL:
+    Description: URL of WebGoat Application running in Fargate.
     Value:
-      Fn::Sub: ${WebGoatLoadBalancer.DNSName}
+      Fn::Sub: http://${WebGoatLoadBalancer.DNSName}/WebGoat

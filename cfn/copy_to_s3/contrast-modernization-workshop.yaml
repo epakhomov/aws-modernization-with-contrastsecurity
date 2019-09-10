@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: This AWS CloudFormation Template that configures the Contrast DevSecOps workshop. 
+
+Resources:
+
+  ContrastSecurityWorkshopVPC:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://contrast-security-aws-devsecops-workshop.s3-us-east-2.amazonaws.com/contrast-aws-workshop-vpc.yaml
+    
+  ContrastSecurityWorkshopCloud9:
+    DependsOn: ContrastSecurityWorkshopVPC
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://contrast-security-aws-devsecops-workshop.s3-us-east-2.amazonaws.com/contrast-aws-workshop-cloud9.yaml
+
+Outputs: {}
