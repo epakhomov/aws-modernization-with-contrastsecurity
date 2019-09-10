@@ -14,7 +14,8 @@ RUN mvn clean compile install package
 # Get the Contrast Agent from Maven
 FROM busybox:1.31.0 AS contrast-downloader
 WORKDIR /opt/contrast
-RUN wget -O contrast.jar https://repo1.maven.org/maven2/com/contrastsecurity/contrast-agent/3.6.7.10002/contrast-agent-3.6.7.10002.jar
+ARG CONTRAST_AGENT_VERSION=3.6.8.10823
+RUN wget -O contrast.jar https://repo1.maven.org/maven2/com/contrastsecurity/contrast-agent/$CONTRAST_AGENT_VERSION/contrast-agent-$CONTRAST_AGENT_VERSION.jar
 
 # Build final image for running WebGoat application with Contrast
 FROM openjdk:8-alpine3.9
